@@ -54,6 +54,23 @@ paisson_gamma <- function(n, lambda, r, beta){
 paisson_gamma(10000, 4, 3)
 
 
+## Mixture of several gamma distb.
+
+dilara <- function(n,k){
+  k <- sample(1:5, size = n, replace = T,
+              prob = (1:5)/15)
+  rate <- 1/k
+  x <- rgamma(n, shape = 3, rate = rate)
+  
+  plot(density(x), xlim = c(0,40), ylim = c(0, 0.3), lwd = 3)
+  for(i in 1:5){
+    lines(density(rgamma(n, 3, 1/i)))
+  }
+}
+
+
+
+
 
 
 
